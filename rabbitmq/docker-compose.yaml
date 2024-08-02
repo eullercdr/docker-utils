@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3.8-management-alpine"
+    container_name: microservices-rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "156722:15672"
+      - "56722:5672"
+    volumes:
+      - "./data:/var/lib/rabbitmq/mnesia"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

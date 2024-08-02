@@ -1,2 +1,4 @@
 .history
 redis/data
+rabbitmq/data
+mongodb/data
